@@ -55,6 +55,21 @@ window.onload = function() {
     }
 };
 
+// Paddle movement based on device tilt
+window.addEventListener('deviceorientation', (event) => {
+    const tiltLR = event.gamma; // Left-to-right tilt in degrees
+    if (tiltLR > 10) {
+        rightPressed = true;
+        leftPressed = false;
+    } else if (tiltLR < -10) {
+        leftPressed = true;
+        rightPressed = false;
+    } else {
+        leftPressed = false;
+        rightPressed = false;
+    }
+});
+
 const paddleImage = new Image();
 paddleImage.src = 'paddle.png';
 
