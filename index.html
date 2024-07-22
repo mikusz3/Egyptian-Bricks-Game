@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Bricks Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="backgroundMusic" src="titletheme.mp3" loop></audio>
+    <div class="title-screen">
+        <img src="egyptian bricks logo.png" alt="Egyptian Bricks Logo" class="logo">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <script>
+        function startGame() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+            window.localStorage.setItem('musicPlaying', 'true');
+            window.localStorage.setItem('musicPaused', 'false');
+            window.location.href = 'stage-select.html';
+        }
+
+        window.onload = function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const musicPlaying = window.localStorage.getItem('musicPlaying');
+            const musicPaused = window.localStorage.getItem('musicPaused');
+            if (musicPlaying !== 'true' || musicPaused === 'true') {
+                backgroundMusic.play();
+                window.localStorage.setItem('musicPlaying', 'true');
+                window.localStorage.setItem('musicPaused', 'false');
+            }
+        };
+    </script>
+</body>
+</html>

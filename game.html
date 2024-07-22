@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Bricks Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="ballTapSound" src="mixkit-game-ball-tap-2073.wav"></audio>
+    <audio id="brickBreakSound" src="mixkit-glass-break-with-hammer-thud-759.mp3"></audio>
+    <audio id="lifeLostSound" src="mixkit-player-losing-or-failing-2042.wav"></audio>
+    <audio id="powerUpSound" src="mixkit-casino-bling-achievement-2067.wav"></audio>
+    <audio id="shootingSound" src="mixkit-game-gun-shot-1662.mp3"></audio>
+    <audio id="stageCompleteSound" src="mixkit-game-level-completed-2059.wav"></audio>
+    <canvas id="gameCanvas"></canvas>
+    <div id="score">Score: 0</div>
+    <button id="pauseButton" class="pause-button">Pause</button>
+    <button id="powerUpButton" class="power-up-button">
+        <img src="powerup_button.png" alt="Power Up">
+    </button>
+    <div id="gameOverScreen" class="overlay hidden">
+        <h1>Game Over</h1>
+        <button id="retryButton">Try Again</button>
+        <button id="stageSelectButton">Stage Select</button>
+        <button id="titleScreenButton">Title Screen</button>
+    </div>
+    <div id="stageCompletedScreen" class="overlay hidden">
+        <h1>Stage Completed!</h1>
+        <button id="nextStageButton">Next Stage</button>
+        <button id="stageSelectButton2">Stage Select</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Select - Egyptian Bricks Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="backgroundMusic" src="titletheme.mp3" loop></audio>
+    <div id="stage-select-screen" class="screen">
+        <h1>Select Stage</h1>
+        <div id="stages">
+            <!-- You can dynamically generate these stage buttons with JS later -->
+            <button class="stage-button">Stage 1</button>
+            <button class="stage-button">Stage 2</button>
+            <button class="stage-button">Stage 3</button>
+            <button class="stage-button">Stage 4</button>
+            <button class="stage-button">Stage 5</button>
+            <button class="stage-button">Stage 6</button>
+            <button class="stage-button">Stage 7</button>
+            <button class="stage-button">Stage 8</button>
+            <button class="stage-button">Stage 9</button>
+            <button class="stage-button">Stage 10</button>
+            <button class="stage-button">Stage 11</button>
+            <button class="stage-button">Stage 12</button>
+            <button class="stage-button">Stage 13</button>
+            <button class="stage-button">Stage 14</button>
+            <button class="stage-button">Stage 15</button>
+            <button class="stage-button">Stage 16</button>
+            <button class="stage-button">Stage 17</button>
+            <button class="stage-button">Stage 18</button>
+            <button class="stage-button">Stage 19</button>
+            <button class="stage-button">Stage 20</button>
+            <button class="stage-button">Stage 21</button>
+            <button class="stage-button">Stage 22</button>
+            <button class="stage-button">Stage 23</button>
+            <button class="stage-button">Stage 24</button>
+            <button class="stage-button">Stage 25</button>
+            <button class="stage-button">Stage 26</button>
+            <button class="stage-button">Stage 27</button>
+            <button class="stage-button">Stage 28</button>
+            <button class="stage-button">Stage 29</button>
+            <button class="stage-button">Stage 30</button>
+        </div>
+    </div>
+    <script src="stage-select.js"></script>
+    <script>
+        window.onload = function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const musicPlaying = window.localStorage.getItem('musicPlaying');
+            const musicPaused = window.localStorage.getItem('musicPaused');
+            if (musicPlaying !== 'true' || musicPaused === 'true') {
+                backgroundMusic.play();
+                window.localStorage.setItem('musicPlaying', 'true');
+                window.localStorage.setItem('musicPaused', 'false');
+            }
+        };
+    </script>
+</body>
+</html>

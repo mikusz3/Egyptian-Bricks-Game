@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+.title-screen {
+    text-align: center;
+}
+
+.logo {
+    width: 60%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    transition: background-color 0.3s;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+#gameCanvas {
+    border: 1px solid #fff;
+}
+
+#score {
+    position: absolute;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+}
+
+/* Background image for PC version */
+@media (min-width: 1081px) {
+    body {
+        background-image: url('background_pc.jpg');
+    }
+    #score {
+        top: 10px;
+        right: 20px;
+    }
+    #pauseButton {
+        display: none;
+    }
+    .power-up-button {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Background image for mobile version */
+@media (max-width: 1080px) {
+    body {
+        background-image: url('background_mobile.jpg');
+    }
+    #score {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #pauseButton {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #f39c12;
+        color: #fff;
+        transition: background-color 0.3s;
+        font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+    }
+    #pauseButton:hover {
+        background-color: #e67e22;
+    }
+    .power-up-button {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #f39c12;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
+    .power-up-button:hover {
+        background-color: #e67e22;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
