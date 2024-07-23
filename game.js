@@ -70,18 +70,6 @@ window.addEventListener('deviceorientation', (event) => {
     }
 });
 
-const paddleImage = new Image();
-paddleImage.src = 'paddle.png';
-
-const ballImage = new Image();
-ballImage.src = 'ball.png';
-
-const brickColors = [
-    { start: '#ff6666', end: '#ffcccc' },
-    { start: '#66ff66', end: '#ccffcc' },
-    { start: '#6666ff', end: '#ccccff' },
-];
-
 function generateRandomStage() {
     const urlParams = new URLSearchParams(window.location.search);
     currentStage = parseInt(urlParams.get('stage')) || 1; // Get stage from URL or default to 1
@@ -91,12 +79,12 @@ function generateRandomStage() {
         for (let r = 0; r < brickRowCount; r++) {
             const brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
             const brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
-            const randomColorIndex = Math.floor(Math.random() * brickColors.length);
+            const randomColorIndex = Math.floor(Math.random() * 3);
             bricks[c][r] = {
                 x: brickX,
                 y: brickY,
-                status: 1, // Ensure all bricks are present at the start
-                color: brickColors[randomColorIndex]
+                status: 1,
+                color: randomColorIndex === 0 ? '#ff6666' : randomColorIndex === 1 ? '#66ff66' : '#6666ff'
             };
         }
     }
@@ -105,7 +93,7 @@ function generateRandomStage() {
 function resetBricks() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
-            bricks[c][r].status = Math.random() < 0.5 ? 1 : 0;
+            bricks[c][r].status = 1;
         }
     }
 }
@@ -116,10 +104,7 @@ function drawBricks() {
         for (let r = 0; r < brickRowCount; r++) {
             if (bricks[c][r].status == 1) {
                 const brick = bricks[c][r];
-                const gradient = ctx.createLinearGradient(brick.x, brick.y, brick.x + brickWidth, brick.y + brickHeight);
-                gradient.addColorStop(0, brick.color.start);
-                gradient.addColorStop(1, brick.color.end);
-                ctx.fillStyle = gradient;
+                ctx.fillStyle = brick.color;
                 ctx.fillRect(brick.x, brick.y, brickWidth, brickHeight);
                 ctx.strokeStyle = '#fff';
                 ctx.strokeRect(brick.x, brick.y, brickWidth, brickHeight);
@@ -133,11 +118,16 @@ function drawBricks() {
 }
 
 function drawBall() {
-    ctx.drawImage(ballImage, x - ballRadius, y - ballRadius, ballRadius * 2, ballRadius * 2);
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffffff';
+    ctx.fill();
+    ctx.closePath();
 }
 
 function drawPaddle() {
-    ctx.drawImage(paddleImage, paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = '#8B4513';
+    ctx.fillRect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
 }
 
 function drawBullets() {
@@ -375,9 +365,5 @@ function regenerateBrick(c, r) {
     bricks[c][r].status = 1;
 }
 
-paddleImage.onload = () => {
-    ballImage.onload = () => {
-        generateRandomStage();
-        draw();
-    };
-};
+generateRandomStage();
+draw();
