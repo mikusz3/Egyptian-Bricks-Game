@@ -95,7 +95,7 @@ function generateRandomStage() {
             bricks[c][r] = {
                 x: brickX,
                 y: brickY,
-                status: Math.random() < 0.5 ? 1 : 0,
+                status: 1, // Ensure all bricks are present at the start
                 color: brickColors[randomColorIndex]
             };
         }
