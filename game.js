@@ -70,11 +70,8 @@ window.addEventListener('deviceorientation', (event) => {
     }
 });
 
-const paddleImage = new Image();
-paddleImage.src = 'paddle.png';
-
-const ballImage = new Image();
-ballImage.src = 'ball.png';
+const paddleColor = '#8B4513'; // Solid brown color for paddle
+const ballColor = '#FFFFFF'; // Solid white color for ball
 
 const brickColors = [
     { start: '#ff6666', end: '#ffcccc' },
@@ -133,11 +130,16 @@ function drawBricks() {
 }
 
 function drawBall() {
-    ctx.drawImage(ballImage, x - ballRadius, y - ballRadius, ballRadius * 2, ballRadius * 2);
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = ballColor;
+    ctx.fill();
+    ctx.closePath();
 }
 
 function drawPaddle() {
-    ctx.drawImage(paddleImage, paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = paddleColor;
+    ctx.fillRect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
 }
 
 function drawBullets() {
@@ -375,9 +377,5 @@ function regenerateBrick(c, r) {
     bricks[c][r].status = 1;
 }
 
-paddleImage.onload = () => {
-    ballImage.onload = () => {
-        generateRandomStage();
-        draw();
-    };
-};
+generateRandomStage();
+draw();
