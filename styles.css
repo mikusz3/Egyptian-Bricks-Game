@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #222;
     font-family: 'Comic Neue', 'Dancing Script', sans-serif;
     color: #fff;
     background-size: cover;
@@ -15,12 +16,11 @@ body {
 
 .title-screen {
     text-align: center;
-    position: relative;
 }
 
 .logo {
-    width: 80%;
-    max-width: 400px;
+    max-width: 90%;
+    height: auto;
     margin-bottom: 20px;
 }
 
@@ -52,12 +52,7 @@ button:hover {
     body {
         background-image: url('background_mobile.jpg');
     }
-    .logo {
-        width: 60%;
-        max-width: 250px;
-    }
 }
-
     #score {
         top: 10px;
         left: 50%;
