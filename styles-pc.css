@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+    color: #fff;
+    background-image: url('background_pc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+.title-screen {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    transition: background-color 0.3s;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+#gameCanvas {
+    border: 1px solid #fff;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+}
+
+.pause-button {
+    display: none;
+}
+
+.power-up-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
