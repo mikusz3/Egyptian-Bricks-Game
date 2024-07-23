@@ -5,7 +5,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #222;
     font-family: 'Comic Neue', 'Dancing Script', sans-serif;
     color: #fff;
     background-size: cover;
@@ -14,36 +13,37 @@ body {
     flex-direction: column;
 }
 
-#gameCanvas {
-    border: 1px solid #fff;
+.title-screen {
+    text-align: center;
+    position: relative;
 }
 
-#score {
-    position: absolute;
-    color: white;
+.logo {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
     font-size: 1.5rem;
-    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    transition: background-color 0.3s;
     font-family: 'Comic Neue', 'Dancing Script', sans-serif;
+}
+
+button:hover {
+    background-color: #e67e22;
 }
 
 /* Background image for PC version */
 @media (min-width: 1081px) {
     body {
         background-image: url('background_pc.jpg');
-    }
-    #score {
-        top: 10px;
-        right: 20px;
-    }
-    #pauseButton {
-        display: none;
-    }
-    .power-up-button {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        width: auto;
-        height: auto;
     }
 }
 
@@ -52,6 +52,12 @@ body {
     body {
         background-image: url('background_mobile.jpg');
     }
+    .logo {
+        width: 60%;
+        max-width: 250px;
+    }
+}
+
     #score {
         top: 10px;
         left: 50%;
