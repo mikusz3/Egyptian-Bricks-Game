@@ -16,10 +16,11 @@ body {
 
 .title-screen {
     text-align: center;
+    padding: 20px;
 }
 
 .logo {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     margin-bottom: 20px;
 }
@@ -51,6 +52,19 @@ button:hover {
 @media (max-width: 1080px) {
     body {
         background-image: url('background_mobile.jpg');
+    }
+
+    .logo {
+        max-width: 80%;
+    }
+
+    .title-screen {
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 }
     #score {
